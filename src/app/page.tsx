@@ -5,7 +5,7 @@ import Image from "next/image";
 import useSWR, { SWRConfig } from "swr";
 const inter = Inter({ subsets: ["latin"] });
 const fetcher = (url: string) => fetch(url).then((res) => res.json());
-const API = "api/manga/chapters?mangaId=a1b7c0e2-1acc-4e1f-9e51-c0653db47561";
+const API = "api/manga/chapters?mangaId=d7985c7c-0e5b-4308-ac3a-1d279fd996bc";
 
 function Chapters() {
   const { data, error } = useSWR(API, fetcher);
@@ -18,7 +18,7 @@ function Chapters() {
       <h1>Chapters</h1>
       <ul>
         {data.chapter.data.map((chapter: any) => (
-          <li key={chapter.id}>
+          <li key={chapter}>
             <Image
               src={`${data.baseUrl}/data/${data.chapter.hash}/${chapter}`}
               alt="Manga Chapters"
